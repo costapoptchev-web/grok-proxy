@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: grok-proxy
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ZAPIER_WEBHOOK_URL
+        value: https://hooks.zapier.com/hooks/catch/24103395/u40pl0p/
+
